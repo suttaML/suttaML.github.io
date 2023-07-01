@@ -1,0 +1,12 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "My Plugin",
+  "name_for_model": "my_plugin",
+  "description_for_human": "This is a plugin for...",
+  "description_for_model": "A plugin for...",
+  "api": { "url": "/openapi.json" },
+  "auth": { "type": "none" },
+  "logo_url": "/logo.png",
+  "legal_info_url": "http://example.com",
+  "contact_email": "hello@example.com"
+}
