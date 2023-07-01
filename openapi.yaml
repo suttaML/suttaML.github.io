@@ -1,0 +1,77 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: Deck of Cards API
+servers:
+  - url: https://deckofcardsapi.com/api
+paths:
+  /deck/new/shuffle:
+    get:
+      summary: Shuffle a new deck of cards
+      responses:
+        '200':
+          description: A shuffled deck of cards
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Deck'
+  /deck/{deck_id}/draw:
+    get:
+      summary: Draw cards from the deck
+      parameters:
+        - name: deck_id
+          in: path
+          required: true
+          description: The ID of the deck
+          schema:
+            type: string
+        - name: count
+          in: query
+          description: The number of cards to draw
+          schema:
+            type: integer
+            default: 1
+      responses:
+        '200':
+          description: The drawn cards
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Draw'
+components:
+  schemas:
+    Deck:
+      type: object
+      properties:
+        success:
+          type: boolean
+        deck_id:
+          type: string
+        shuffled:
+          type: boolean
+        remaining:
+          type: integer
+    Draw:
+      type: object
+      properties:
+        success:
+          type: boolean
+        cards:
+          type: array
+          items:
+            $ref: '#/components/schemas/Card'
+        deck_id:
+          type: string
+        remaining:
+          type: integer
+    Card:
+      type: object
+      properties:
+        image:
+          type: string
+        value:
+          type: string
+        suit:
+          type: string
+        code:
+          type: string
