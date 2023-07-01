@@ -6,7 +6,7 @@
   "description_for_model": "A plugin for...",
   "api": { "url": "/openapi.json" },
   "auth": { "type": "none" },
-  "logo_url": "/logo.png",
+  "logo_url": "/logo.jpg",
   "legal_info_url": "http://example.com",
   "contact_email": "hello@example.com"
 }
